@@ -69,10 +69,10 @@ public class DungeonManager : MonoBehaviour
 
     private void HandleTileEntered(Tile tile)
     {
-        Debug.Log($"Entered a tile of type: {tile.tileEventTypeType}");
+        Debug.Log($"Entered a tile of type: {tile._tileEventTypeType}");
         PathManager.Instance.EnablePauseMovement();
 
-        switch (tile.tileEventTypeType)
+        switch (tile._tileEventTypeType)
         {
             case Tile.TileEvent.Enemy:
                 // _combatManager.StartCombat(tile);

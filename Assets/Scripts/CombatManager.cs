@@ -2,6 +2,31 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+     CombatState _combatState;
+    public static CombatManager Instance { get; private set; }
+
+    public enum CombatState
+    {
+        NotInCombat,
+        Started,
+        Occuring,
+        Victory,
+    
+    }
+   
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+
+
+    }
+    
     Floor _currentFloor;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +57,9 @@ public class CombatManager : MonoBehaviour
 
     private void StartCombat()
     {
+
+        //PartyController.Instance.SetState(PartyController.PartyState.Combat);
+        
         Debug.Log("CombatManager.StartCombat");
     }
 }
